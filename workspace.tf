@@ -30,10 +30,10 @@ data "aws_cloudformation_stack" "this" {
   name = "databricks-workspace-stack-eb289"
 }
 
-variable "vpc_id" {}
+
 
 data "aws_vpc" "this" {
-  id = var.vpc_id
+  name = "databricks-WorkerEnvId(workerenv-4871281226906886-d3abd75f-c4a9-465c-8abf-1dca4739c480)"
 }
 
 resource "databricks_mws_workspaces" "this" {
