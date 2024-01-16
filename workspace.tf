@@ -32,8 +32,10 @@ data "aws_cloudformation_stack" "this" {
 
 
 
-data "aws_vpc" "this" {
- # name = "databricks-WorkerEnvId(workerenv-4871281226906886-d3abd75f-c4a9-465c-8abf-1dca4739c480)"
+data "aws_vpcs" "this" {
+  tags = {
+    name = "databricks-WorkerEnvId(workerenv-4871281226906886-d3abd75f-c4a9-465c-8abf-1dca4739c480)"
+  }
 }
 
 resource "databricks_mws_workspaces" "this" {
