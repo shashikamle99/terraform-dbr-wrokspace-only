@@ -1,9 +1,9 @@
 data "aws_cloudformation_stack" "cft" {
-  name = "StorageConfigId"
+  name = "databricks-workspace-stack-eb289"
 }
 
 data "aws_cloudformation_stack" "cft1" {
-  name = "CredentialsId"
+  name = "databricks-workspace-stack-eb289"
 }
 
 # output "databricks_account_id" {
@@ -12,8 +12,8 @@ data "aws_cloudformation_stack" "cft1" {
 # }
 
 locals {
-    credentials_id  = data.aws_cloudformation_stack.cft.id
-    storage_configuration_id  = data.aws_cloudformation_stack.cft1.id
+    credentials_id  = data.aws_cloudformation_stack.cft.CredentialsId
+    storage_configuration_id  = data.aws_cloudformation_stack.cft1.StorageConfigId
 }
 
 
