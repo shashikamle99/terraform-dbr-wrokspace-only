@@ -1,6 +1,8 @@
+data "databricks_mws_credentials" "this" {}
+
 data "databricks_mws_storage_configurations" "this" {}
 
-data "databricks_mws_credentials" "this" {}
+
 
 # output "databricks_account_id" {
 #   value = data.aws_ssm_parameter.dbr_account_id.value
@@ -8,8 +10,8 @@ data "databricks_mws_credentials" "this" {}
 # }
 
 locals {
-    credentials_id  = data.databricks_mws_credentials.this.id
-    storage_configuration_id  = data.databricks_mws_storage_configurations.this.id
+    credentials_id  = data.databricks_mws_credentials.this.credentials_id
+    storage_configuration_id  = data.databricks_mws_storage_configurations.this.storage_configuration_id
 }
 
 
