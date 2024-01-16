@@ -1,9 +1,9 @@
 data "aws_cloudformation_stack" "cft" {
-  name = "CredentialsId"
+  name = "createCredentials.CredentialsId"
 }
 
 data "aws_cloudformation_stack" "cft1" {
-  name = "StorageConfigId"
+  name = "createStorageConfiguration.StorageConfigId"
 }
 
 # output "databricks_account_id" {
