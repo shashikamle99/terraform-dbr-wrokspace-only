@@ -9,18 +9,18 @@
 
 
 data "aws_cloudformation_export" "this" {
-  name = "CredentialsId"
+  # name = "CredentialsId"
 }
 
-data "aws_cloudformation_export" "this1" {
-  name = "StorageConfigId"
-}
+# data "aws_cloudformation_export" "this1" {
+#    name = "StorageConfigId"
+# }
 
 
 
 locals {
-    credentials_id  = data.aws_cloudformation_export.this.value
-    storage_configuration_id  = data.aws_cloudformation_export.this1.value
+    credentials_id  = data.aws_cloudformation_export.this.CredentialsId
+    storage_configuration_id  = data.aws_cloudformation_export.this.StorageConfigId
 }
 
 
