@@ -27,7 +27,7 @@
 
 
 data "aws_cloudformation_stack" "this" {
-  name = "databricks-workspace-stack-eb2891"
+  name = "databricks-workspace-stack-eb289"
 }
 
 
