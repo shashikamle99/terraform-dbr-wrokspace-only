@@ -1,5 +1,19 @@
-# data "aws_cloudformation_stack" "cft" {
-#   name = "databricks-workspace-stack-eb289"
+data "aws_cloudformation_stack" "cft" {
+  name = "CredentialsId"
+}
+
+data "aws_cloudformation_stack" "cft1" {
+  name = "StorageConfigId"
+}
+
+# output "databricks_account_id" {
+#   value = data.aws_ssm_parameter.dbr_account_id.value
+#   sensitive = true
+# }
+
+# locals {
+#     client_id = data.aws_ssm_parameter.client_id.value
+    
 # }
 
 
@@ -9,8 +23,8 @@ resource "databricks_mws_workspaces" "this" {
   account_id     = var.databricks_account_id
   aws_region     = var.region
   workspace_name = var.workspace_name
-  credentials_id           = "f7e6048f-2edf-4539-905e-004246a55842"
-  storage_configuration_id = "855e390c-09a9-4c59-aaec-be732e5becc8"
+  credentials_id           = data.aws_cloudformation_stack.cft.CredentialsId
+  storage_configuration_id = data.aws_cloudformation_stack.cft1.StorageConfigId
   # network_id               = databricks_mws_networks.this.network_id
 
   # token {
