@@ -8,20 +8,20 @@
 # }
 
 
-data "aws_cloudformation_export" "this" {
-   name = "databricks-workspace-stack-eb289"
-}
+# data "aws_cloudformation_export" "this" {
+#   name = "CredentialsId"
+# }
 
 # data "aws_cloudformation_export" "this1" {
-#    name = "StorageConfigId"
+#   name = "StorageConfigId"
 # }
 
 
 
-locals {
-    credentials_id  = data.aws_cloudformation_export.this.CredentialsId
-    storage_configuration_id  = data.aws_cloudformation_export.this.StorageConfigId
-}
+# locals {
+#     credentials_id  = data.aws_cloudformation_export.this.value
+#     storage_configuration_id  = data.aws_cloudformation_export.this1.value
+# }
 
 
 
@@ -30,8 +30,8 @@ resource "databricks_mws_workspaces" "this" {
   account_id     = var.databricks_account_id
   aws_region     = var.region
   workspace_name = var.workspace_name
-  credentials_id           = local.credentials_id 
-  storage_configuration_id = local.storage_configuration_id
+  credentials_id           = var.credentials_id 
+  storage_configuration_id = var.storage_configuration_id
   # network_id               = databricks_mws_networks.this.network_id
 
   # token {
