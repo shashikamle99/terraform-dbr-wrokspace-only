@@ -3,13 +3,16 @@ data "aws_cloudformation_stack" "this" {
 }
 
 data "aws_vpc" "selected" {
-  # id = var.vpc_id
+  tags = {
+    service = "production"
+  }
 }
 
+
 data "aws_vpcs" "foo" {
-  # tags = {
-  #   service = "production"
-  # }
+  tags = {
+    service = "production"
+  }
 }
 
 resource "databricks_mws_workspaces" "this" {
