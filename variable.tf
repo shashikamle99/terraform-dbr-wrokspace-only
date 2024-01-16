@@ -4,9 +4,9 @@ variable "databricks_account_id" {}
 
 variable "workspace_name" {}
 
-variable "credentials_id" {}
+# variable "credentials_id" {}
 
-variable "storage_configuration_id" {}
+# variable "storage_configuration_id" {}
 
 # variable "tags" {
 #   default = {}

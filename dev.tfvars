@@ -8,9 +8,9 @@ region = "us-west-1"
 
 workspace_name = "dev-terra-ws"
 
-credentials_id = "f7e6048f-2edf-4539-905e-004246a55842"
+# credentials_id = "f7e6048f-2edf-4539-905e-004246a55842"
 
-storage_configuration_id = "855e390c-09a9-4c59-aaec-be732e5becc8"
+# storage_configuration_id = "855e390c-09a9-4c59-aaec-be732e5becc8"
 
 
 
