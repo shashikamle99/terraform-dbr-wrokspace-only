@@ -30,6 +30,11 @@ data "aws_cloudformation_stack" "this" {
   name = "databricks-workspace-stack-eb289"
 }
 
+variable "vpc_id" {}
+
+data "aws_vpc" "this" {
+  id = var.vpc_id
+}
 
 resource "databricks_mws_workspaces" "this" {
   provider       = databricks.mws
@@ -38,7 +43,7 @@ resource "databricks_mws_workspaces" "this" {
   workspace_name = var.workspace_name
   credentials_id           = data.aws_cloudformation_stack.this.outputs["CredentialsId"]
   storage_configuration_id = data.aws_cloudformation_stack.this.outputs["StorageConfigId"]
-  network_id               = "vpc-0a4de24baa0911126"
+  network_id               = data.aws_vpc.this.id
 
   token {
     comment = "Terraform"
