@@ -9,7 +9,7 @@
 
 
 data "aws_cloudformation_export" "this" {
-  # name = "CredentialsId"
+   name = "databricks-workspace-stack-eb289"
 }
 
 # data "aws_cloudformation_export" "this1" {
