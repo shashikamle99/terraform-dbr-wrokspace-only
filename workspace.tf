@@ -6,7 +6,7 @@ data "aws_cloudformation_stack" "this" {
 
 resource "databricks_mws_workspaces" "this" {
   provider       = databricks.mws
-  account_id     = var.databricks_account_id
+  account_id     = local.databricks_account_id
   aws_region     = var.region
   workspace_name = var.workspace_name
   credentials_id           = data.aws_cloudformation_stack.this.outputs["CredentialsId"]
