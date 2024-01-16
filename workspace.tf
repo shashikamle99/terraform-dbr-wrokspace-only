@@ -40,7 +40,7 @@ resource "databricks_mws_workspaces" "this" {
   workspace_name = var.workspace_name
   credentials_id           = data.aws_cloudformation_stack.this.outputs["CredentialsId"]
   storage_configuration_id = data.aws_cloudformation_stack.this.outputs["StorageConfigId"]
-  network_id               = "vpc-0fa0d7cfcbcff41c2"
+  #network_id               = "vpc-0fa0d7cfcbcff41c2"
 
   token {
     comment = "Terraform"
