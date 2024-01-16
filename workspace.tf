@@ -4,7 +4,7 @@ data "aws_cloudformation_stack" "this" {
 
 data "aws_vpc" "selected" {
   tags = {
-    service = "production"
+    Name = "databricks-WorkerEnvId(workerenv-8281225760377684-ed84b6cf-a205-4105-85b5-5131781c9e96)"
   }
 }
 
