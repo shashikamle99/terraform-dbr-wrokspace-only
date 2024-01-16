@@ -12,8 +12,8 @@ data "aws_cloudformation_stack" "cft1" {
 # }
 
 locals {
-    credentials_id  = data.aws_cloudformation_stack.cft.Outputs
-    storage_configuration_id  = data.aws_cloudformation_stack.cft1.Outputs
+    credentials_id  = data.aws_cloudformation_stack.cft.name
+    storage_configuration_id  = data.aws_cloudformation_stack.cft1.name
 }
 
 
