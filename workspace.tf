@@ -10,7 +10,7 @@ data "databricks_mws_storage_configurations" "this" {}
 # }
 
 locals {
-    credentials_id  = data.databricks_mws_credentials.this.credentials_id
+    credentials_id  = data.databricks_mws_credentials.this.id
     storage_configuration_id  = data.databricks_mws_storage_configurations.this.storage_configuration_id
 }
 
