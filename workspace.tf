@@ -23,6 +23,7 @@
 #     storage_configuration_id  = data.aws_cloudformation_export.this1.value
 # }
 
+# data "databricks_mws_credentials" "this" {}
 
 
 resource "databricks_mws_workspaces" "this" {
@@ -32,7 +33,7 @@ resource "databricks_mws_workspaces" "this" {
   workspace_name = var.workspace_name
   credentials_id           = var.credentials_id 
   storage_configuration_id = var.storage_configuration_id
-  # network_id               = databricks_mws_networks.this.network_id
+  network_id               = "vpc-0a4de24baa0911126"
 
   # token {
   #   comment = "Terraform"
