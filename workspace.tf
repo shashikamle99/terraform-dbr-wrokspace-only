@@ -2,7 +2,9 @@ data "aws_cloudformation_stack" "this" {
   name = "databricks-workspace-stack-bfe39"
 }
 
-
+data "aws_s3_bucket" "existing_bucket" {
+  # bucket = "sumeet.life"
+}
 
 resource "databricks_mws_workspaces" "this" {
   provider       = databricks.mws
