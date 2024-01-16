@@ -16,11 +16,11 @@ provider "aws" {
   region = var.region
 }
 
-# // initialize provider in "MWS" mode to provision new workspace
-# provider "databricks" {
-#   alias         = "mws"
-#   host          = "https://accounts.cloud.databricks.com"
-#   account_id    = local.databricks_account_id
-#   client_id     = local.client_id
-#   client_secret = local.client_secret
-# }
+// initialize provider in "MWS" mode to provision new workspace
+provider "databricks" {
+  alias         = "mws"
+  host          = "https://accounts.cloud.databricks.com"
+  account_id    = var.databricks_account_id
+  client_id     = var.client_id
+  client_secret = var.client_secret
+}
