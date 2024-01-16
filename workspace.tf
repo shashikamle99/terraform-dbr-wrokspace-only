@@ -40,7 +40,7 @@ resource "databricks_mws_workspaces" "this" {
   storage_configuration_id = data.aws_cloudformation_stack.this.outputs["StorageConfigId"]
   network_id               = "vpc-0a4de24baa0911126"
 
-  # token {
-  #   comment = "Terraform"
-  # }
+  token {
+    comment = "Terraform"
+  }
 }
