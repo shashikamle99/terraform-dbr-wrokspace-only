@@ -9,11 +9,11 @@
 
 
 data "aws_cloudformation_export" "this" {
-  name = "CredentialsId"
+  name = "Credential ID"
 }
 
 data "aws_cloudformation_export" "this1" {
-  name = "StorageConfigId"
+  name = "Storage configuration ID"
 }
 
 
@@ -31,8 +31,8 @@ resource "databricks_mws_workspaces" "this" {
   account_id     = var.databricks_account_id
   aws_region     = var.region
   workspace_name = var.workspace_name
-  # credentials_id           = data.aws_cloudformation_export.this.CredentialsId.value
-  # storage_configuration_id = data.aws_cloudformation_export.this1.StorageConfigId.value
+  # credentials_id           = data.aws_cloudformation_export.this.value
+  # storage_configuration_id = data.aws_cloudformation_export.this1.value
   # network_id               = ""
 
   # token {
