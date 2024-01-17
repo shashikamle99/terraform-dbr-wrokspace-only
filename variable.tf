@@ -25,4 +25,5 @@ variable "region" {
 
 variable "cidr_block" {  
   default = "10.43.0.0/16"
+  type = string 
 }
