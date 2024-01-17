@@ -28,7 +28,7 @@ data "aws_vpc" "this" {
 data "aws_subnets" "this" {
   filter {
     name   = "tag:Name"
-    values = ["dbr-pri-subnet","dbr-pri-subnet1"] # insert values here
+    values = ["dbr-pri-subnet","nat-gateway-subnet"] # insert values here
   }
 }
 
