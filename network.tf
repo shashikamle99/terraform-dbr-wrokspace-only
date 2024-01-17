@@ -23,6 +23,6 @@ resource "databricks_mws_networks" "this" {
   account_id         = local.databricks_account_id
   network_name       = "dev-network"
 #  security_group_ids = [module.vpc.default_security_group_id]
-  subnet_ids         = aws_subnet.dbr_subnet.ids
+  subnet_ids         = aws_subnet.dbr_subnet.id
   vpc_id             = data.aws_vpc.this.id
 }
