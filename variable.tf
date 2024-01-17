@@ -4,6 +4,8 @@
 
 variable "workspace_name" {}
 
+variable "stack_name" {}
+
 
 
 variable "region" {
