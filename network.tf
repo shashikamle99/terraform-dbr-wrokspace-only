@@ -18,6 +18,11 @@ resource "aws_subnet" "dbr_subnet" {
 }
 
 
+resource "aws_security_group" "sg" {
+    vpc_id = data.aws_vpc.this.id
+}
+
+
 resource "databricks_mws_networks" "this" {
   provider           = databricks.mws
   account_id         = local.databricks_account_id
