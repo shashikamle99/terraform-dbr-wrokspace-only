@@ -4,9 +4,6 @@
 
 variable "workspace_name" {}
 
-variable "stack_name" {}
-
-
 
 variable "region" {
   default = "us-west-1"

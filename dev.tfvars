@@ -1,8 +1,8 @@
 region = "us-west-1"
 
-workspace_name = "dbr-dev-ws-terra"
+workspace_name = "dev-dbr-ws-terra"
 
-stack_name = "databricks-workspace-stack-b0ffe"
+
 
 
 
