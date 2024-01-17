@@ -16,7 +16,7 @@ data "aws_vpc" "this" {
 resource "aws_subnet" "dbr_subnet" {
    count = 2
    vpc_id = data.aws_vpc.this.id
-   cidr_block = var.cidr_block
+   cidr_block = var.cidr_block1
 }
 
 
