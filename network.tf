@@ -15,6 +15,7 @@ data "aws_vpc" "this" {
 
 resource "aws_subnet" "dbr_subnet" {
    vpc_id = data.aws_vpc.this.id
+   cidrBlock = "10.43.224.0/19"
 }
 
 
