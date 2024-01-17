@@ -5,39 +5,17 @@ data "aws_vpc" "this" {
   }
 }
 
-# data "aws_subnets" "this" {
-#   filter {
-#     name   = data.aws_vpc.this.id
-#     values = [var.vpc_id]
-#   }
-# }
-
-
-# resource "aws_subnet" "pri_subnet" {
-#    vpc_id = data.aws_vpc.this.id
-#    cidr_block = var.cidr_subnet
-# }
-
-# resource "aws_subnet" "pub_subnet" {
-#    vpc_id = data.aws_vpc.this.id
-#    cidr_block = [cidrsubnet(var.cidr_block, 8, 0)]
-# }
-
-
 
 
 
 data "aws_subnets" "this" {
   filter {
     name   = "tag:Name"
-    values = ["dbr-pri-subnet"] # insert values here
+    values = ["dbr-pri-subnet"] 
   }
 }
 
 
-# resource "aws_security_group" "sg" {
-#     vpc_id = data.aws_vpc.this.id
-# }
 
 
 data "aws_security_groups" "this" {
@@ -50,7 +28,7 @@ data "aws_security_groups" "this" {
 resource "databricks_mws_networks" "this" {
   provider           = databricks.mws
   account_id         = local.databricks_account_id
-  network_name       = "dev-network"
+  network_name       = var.mws_network_name
   security_group_ids = data.aws_security_groups.this.ids
   subnet_ids         = data.aws_subnets.this.ids
   vpc_id             = data.aws_vpc.this.id
