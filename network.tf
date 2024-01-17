@@ -13,11 +13,17 @@ data "aws_vpc" "this" {
 # }
 
 
-resource "aws_subnet" "dbr_subnet" {
-   count = 2
+resource "aws_subnet" "pri_subnet" {
    vpc_id = data.aws_vpc.this.id
-   cidr_block = var.cidr_block1
+   cidr_block = toset(var.cidr_block1)
 }
+
+resource "aws_subnet" "pub_subnet" {
+   vpc_id = data.aws_vpc.this.id
+   cidr_block = "10.43.3.0/24"
+}
+
+
 
 
 resource "aws_security_group" "sg" {
@@ -30,6 +36,6 @@ resource "databricks_mws_networks" "this" {
   account_id         = local.databricks_account_id
   network_name       = "dev-network"
   security_group_ids = [aws_security_group.sg.id]
-  subnet_ids         = [aws_subnet.dbr_subnet.id]
+  subnet_ids         = [aws_subnet.pri_subnet.id]
   vpc_id             = data.aws_vpc.this.id
 }

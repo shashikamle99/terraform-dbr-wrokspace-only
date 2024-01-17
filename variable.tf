@@ -14,5 +14,11 @@ variable "region" {
 variable "cidr_block1" {
   description = "The source CIDR block to allow traffic from"
   default     = ["10.43.1.0/24","10.43.2.0/24"]
-  type        = list(string)
+  type        = set(string)
 }
+
+
+
+variable "public_subnets" {}
+
+variable "private_subnets" {}
