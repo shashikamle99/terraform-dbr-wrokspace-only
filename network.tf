@@ -14,8 +14,9 @@ data "aws_vpc" "this" {
 
 
 resource "aws_subnet" "dbr_subnet" {
+   #count = 2
    vpc_id = data.aws_vpc.this.id
-   cidr_block = "10.43.1.0/24"
+   cidr_block = ["10.43.1.0/24,10.43.2.0/24"]
 }
 
 
