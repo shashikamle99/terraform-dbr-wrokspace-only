@@ -15,14 +15,13 @@ data "aws_vpc" "this" {
 
 resource "aws_subnet" "pri_subnet" {
    vpc_id = data.aws_vpc.this.id
-   cidr_block = [cidrsubnet(var.cidr_block, 8, 1),
-  cidrsubnet(var.cidr_block, 8, 2)]
+   cidr_block = var.cidr_subnet
 }
 
-resource "aws_subnet" "pub_subnet" {
-   vpc_id = data.aws_vpc.this.id
-   cidr_block = [cidrsubnet(var.cidr_block, 8, 0)]
-}
+# resource "aws_subnet" "pub_subnet" {
+#    vpc_id = data.aws_vpc.this.id
+#    cidr_block = [cidrsubnet(var.cidr_block, 8, 0)]
+# }
 
 
 

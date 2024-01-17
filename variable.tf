@@ -27,3 +27,9 @@ variable "cidr_block" {
   default = "10.43.0.0/16"
   type = string 
 }
+
+
+variable "cidr_subnet" {  
+  default = ["10.43.1.0/24","10.43.2.0/24"]
+  type = list(string)
+}
