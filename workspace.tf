@@ -24,7 +24,7 @@ resource "databricks_mws_workspaces" "this_1" {
   provider       = databricks.mws
   account_id     = local.databricks_account_id
   aws_region     = var.region
-  workspace_name = dbr-dev-ws-2
+  workspace_name = "dbr-dev-ws-2"
   credentials_id           = data.aws_cloudformation_stack.this.outputs["CredentialsId"]
   storage_configuration_id = data.aws_cloudformation_stack.this.outputs["StorageConfigId"]
 
