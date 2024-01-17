@@ -14,7 +14,7 @@ data "aws_vpc" "this" {
 
 
 resource "aws_subnet" "dbr_subnet" {
-  # (resource arguments)
+   vpc_id = data.aws_vpc.this.id
 }
 
 
