@@ -9,3 +9,10 @@ variable "region" {
   default = "us-west-1"
 }
 
+
+
+variable "cidr_block" {
+  description = "The source CIDR block to allow traffic from"
+  default     = ["10.43.1.0/24","10.43.2.0/24"]
+  type        = "list"
+}
