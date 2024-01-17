@@ -20,7 +20,7 @@ resource "databricks_mws_workspaces" "this" {
 }
 
 
-resource "databricks_mws_workspaces" "this" {
+resource "databricks_mws_workspaces" "this_1" {
   provider       = databricks.mws
   account_id     = local.databricks_account_id
   aws_region     = var.region
