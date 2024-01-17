@@ -5,12 +5,12 @@ data "aws_vpc" "this" {
   }
 }
 
-data "aws_subnets" "this" {
-  filter {
-    name   = data.aws_vpc.this.id
-    # values = [var.vpc_id]
-  }
-}
+# data "aws_subnets" "this" {
+#   filter {
+#     name   = data.aws_vpc.this.id
+#     # values = [var.vpc_id]
+#   }
+# }
 
 
 resource "databricks_mws_networks" "this" {
@@ -18,6 +18,6 @@ resource "databricks_mws_networks" "this" {
   account_id         = local.databricks_account_id
   network_name       = "dev-network"
 #   security_group_ids = [module.vpc.default_security_group_id]
-  subnet_ids         = data.this.ids
+  subnet_ids         = [subnet-035d5ea14e5c31627]
   vpc_id             = data.aws_vpc.this.id
 }
