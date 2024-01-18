@@ -6,12 +6,10 @@ data "aws_vpc" "this" {
 }
 
 
-
-
 data "aws_subnets" "this" {
   filter {
     name   = "tag:Name"
-    values = ["dbr-pri-subnet"] 
+    values = ["dev-dbr-private-subnet"] 
   }
 }
 
@@ -20,10 +18,11 @@ data "aws_subnets" "this" {
 
 data "aws_security_groups" "this" {
   tags = {
-    Name = "dbr-sg"
+    Name = "dev-dbr-worker-sg"
     
   }
 }
+
 
 resource "databricks_mws_networks" "this" {
   provider           = databricks.mws
