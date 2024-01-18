@@ -12,6 +12,8 @@ variable "region" {
   default = "us-west-1"
 }
 
+variable "aws_vpc_name" {}
+
 
 
 
