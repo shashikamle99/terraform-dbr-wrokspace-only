@@ -1,3 +1,4 @@
+
 resource "databricks_mws_credentials" "this" {
   provider         = databricks.mws
   account_id       = local.databricks_account_id
