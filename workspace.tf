@@ -1,11 +1,4 @@
 
-
-data "aws_cloudformation_stack" "this" {
-  name = "databricks-workspace-stack-7034f"
-}
-
-
-
 resource "databricks_mws_workspaces" "this" {
   provider       = databricks.mws
   account_id     = local.databricks_account_id

@@ -1,3 +1,5 @@
+// data source aws parameters
+
 data "aws_ssm_parameter" "client_id" {
   name = "client_id"
 }
@@ -10,6 +12,49 @@ data "aws_ssm_parameter" "dbr_account_id" {
   name = "databricks_account_id"
 }
 
+
+
+// data source aws cloudformation stack
+
+data "aws_cloudformation_stack" "this" {
+  name = "databricks-workspace-stack-7034f"
+}
+
+
+
+// data source aws VPC
+
+data "aws_vpc" "this" {
+   tags = {
+    Name = "databricks-WorkerEnvId(workerenv-643699630685625-4c80966a-2695-4f2d-a334-2fdac0748944)"
+  }
+}
+
+
+
+// data source aws private subnets
+
+data "aws_subnets" "this" {
+  filter {
+    name   = "tag:Name"
+    values = ["dev-dbr-private-subnet"] 
+  }
+}
+
+
+
+// data source aws security_groups
+
+data "aws_security_groups" "this" {
+  tags = {
+    Name = "dev-dbr-worker-sg"
+    
+  }
+}
+
+
+
+// declear local variables
 
 locals {
     client_id = data.aws_ssm_parameter.client_id.value
