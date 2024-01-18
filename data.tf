@@ -26,7 +26,7 @@ data "aws_cloudformation_stack" "this" {
 
 data "aws_vpc" "this" {
    tags = {
-    Name = "local.aws_vpc_name"
+    Name = "databricks-WorkerEnvId(workerenv-643699630685625-4c80966a-2695-4f2d-a334-2fdac0748944)"
   }
 }
 
@@ -60,5 +60,4 @@ locals {
     client_id = data.aws_ssm_parameter.client_id.value
     client_secret = data.aws_ssm_parameter.client_secret.value
     databricks_account_id = data.aws_ssm_parameter.dbr_account_id.value
-    aws_vpc_name = "databricks-WorkerEnvId(workerenv-643699630685625-4c80966a-2695-4f2d-a334-2fdac0748944)"
 }
