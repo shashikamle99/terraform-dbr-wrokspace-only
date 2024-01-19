@@ -15,6 +15,6 @@ variable "region" {
 
 variable "vpc_id" {}
 
-# variable "stack_name" {}
+variable "stack_name" {}
 
 

@@ -17,9 +17,8 @@ data "aws_ssm_parameter" "dbr_account_id" {
 // data source aws cloudformation stack
 
 data "aws_cloudformation_stack" "aws_cf_stack" {
-  name = "dbr-workspace-stack"
+  name = var.stack_name
 }
-
 
 
 // data source aws VPC
