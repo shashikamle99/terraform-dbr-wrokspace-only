@@ -17,17 +17,22 @@ data "aws_ssm_parameter" "dbr_account_id" {
 // data source aws cloudformation stack
 
 data "aws_cloudformation_stack" "aws_cf_stack" {
-  name = "databricks-workspace-stack-7034f"
+  name = "var.stack_name"
 }
 
 
 
 // data source aws VPC
 
+# data "aws_vpc" "dbr_vpc" {
+#    tags = {
+#     Name = "databricks-WorkerEnvId(workerenv-643699630685625-4c80966a-2695-4f2d-a334-2fdac0748944)"
+#   }
+# }
+
+
 data "aws_vpc" "dbr_vpc" {
-   tags = {
-    Name = "databricks-WorkerEnvId(workerenv-643699630685625-4c80966a-2695-4f2d-a334-2fdac0748944)"
-  }
+  id = var.vpc_id
 }
 
 
