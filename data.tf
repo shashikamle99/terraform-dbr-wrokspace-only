@@ -23,16 +23,16 @@ data "aws_cloudformation_stack" "aws_cf_stack" {
 
 // data source aws VPC
 
-# data "aws_vpc" "dbr_vpc" {
-#    tags = {
-#     Name = "databricks-WorkerEnvId(workerenv-643699630685625-4c80966a-2695-4f2d-a334-2fdac0748944)"
-#   }
-# }
-
-
 data "aws_vpc" "dbr_vpc" {
-  id = var.vpc_id
+   tags = {
+    Name = var.vpc_name
+  }
 }
+
+
+# data "aws_vpc" "dbr_vpc" {
+#   id = var.vpc_id
+# }
 
 
 

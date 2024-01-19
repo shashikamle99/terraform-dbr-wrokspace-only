@@ -17,4 +17,4 @@ variable "vpc_id" {}
 
 variable "stack_name" {}
 
-
+variable "vpc_name" {}
